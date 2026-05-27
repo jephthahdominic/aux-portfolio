@@ -177,15 +177,15 @@ export function PortfolioShell() {
     return (
         <main className="page-shell flex-1 px-4 py-4 text-foreground sm:px-6 lg:px-8">
             <div className="mx-auto flex w-full max-w-7xl flex-col gap-6">
-                <header className="panel sticky top-4 z-20 rounded-full px-4 py-3 sm:px-8">
+                <header className="panel sticky top-4 z-20 rounded-3xl px-4 py-3 sm:rounded-full sm:px-8">
                     <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                         <div>
-                            <p className="display-type text-lg tracking-[0.25em] text-muted uppercase">
+                            <p className="display-type text-base tracking-[0.2em] text-muted uppercase sm:text-lg sm:tracking-[0.25em]">
                                 St-dominic Jephthah
                             </p>
                             <p className="text-sm text-muted">Software developer focused on useful products and clean execution.</p>
                         </div>
-                        <nav className="flex flex-wrap items-center gap-2 text-sm text-muted">
+                        <nav className="flex flex-wrap items-center gap-2 text-xs text-muted sm:text-sm">
                             <a className="rounded-full px-3 py-2 hover:bg-accent-soft hover:text-foreground" href="#projects">
                                 Projects
                             </a>
@@ -212,10 +212,10 @@ export function PortfolioShell() {
                                 <span className="inline-flex rounded-full border border-line bg-background/80 px-4 py-2 text-xs font-semibold tracking-[0.25em] text-muted uppercase">
                                     Personal developer portfolio
                                 </span>
-                                <h1 className="display-type max-w-4xl text-5xl leading-none tracking-tight text-balance sm:text-6xl lg:text-7xl">
+                                <h1 className="display-type max-w-4xl text-4xl leading-none tracking-tight text-balance sm:text-6xl lg:text-7xl">
                                     I build modern web products that are fast, reliable, and easy to use.
                                 </h1>
-                                <p className="max-w-2xl text-lg leading-8 text-muted sm:text-xl">
+                                <p className="max-w-2xl text-base leading-7 text-muted sm:text-xl sm:leading-8">
                                     I&apos;m St-dominic Jephthah. This portfolio highlights my work across frontend, backend, and product-focused implementation. I care about thoughtful structure, clear user experience, and code that holds up in production.
                                 </p>
                             </div>
@@ -292,7 +292,7 @@ export function PortfolioShell() {
                                         onClick={() => setActiveProjectIndex(index)}
                                         type="button"
                                     >
-                                        <div className="flex items-start justify-between gap-4">
+                                        <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                                             <div>
                                                 <p className="text-sm uppercase tracking-[0.22em] text-muted">{project.category}</p>
                                                 <h3 className="display-type mt-2 text-2xl">{project.title}</h3>
@@ -307,14 +307,14 @@ export function PortfolioShell() {
                     </div>
 
                     <div className="panel rounded-[2rem] p-6 sm:p-8">
-                        <div className="flex flex-wrap items-center justify-between gap-4">
+                        <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
                             <div>
                                 <p className="text-sm uppercase tracking-[0.22em] text-muted">Project spotlight</p>
                                 <h3 className="display-type mt-2 text-3xl sm:text-4xl">{activeProject.title}</h3>
                             </div>
                             {activeProject.href ? (
                                 <a
-                                    className="inline-flex items-center justify-center rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background hover:-translate-y-0.5 hover:opacity-90"
+                                    className="inline-flex w-full items-center justify-center rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background hover:-translate-y-0.5 hover:opacity-90 sm:w-auto"
                                     href={activeProject.href}
                                     rel="noopener noreferrer"
                                     target="_blank"
@@ -322,7 +322,7 @@ export function PortfolioShell() {
                                     Open project in new tab
                                 </a>
                             ) : (
-                                <span className="inline-flex items-center justify-center rounded-full border border-line bg-background/80 px-5 py-3 text-sm font-semibold text-muted">
+                                <span className="inline-flex w-full items-center justify-center rounded-full border border-line bg-background/80 px-5 py-3 text-sm font-semibold text-muted sm:w-auto">
                                     Private project link
                                 </span>
                             )}
@@ -392,7 +392,7 @@ export function PortfolioShell() {
 
                 <section id="socials" className="section-anchor panel rounded-[2rem] p-6 sm:p-8">
                     <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-                        <div className="w-[60%]">
+                        <div className="w-full lg:w-3/5">
                             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-muted">Social handles</p>
                             <h2 className="display-type mt-4 text-3xl sm:text-4xl">Connect with me on the platforms where I share updates, code, and professional work.</h2>
                         </div>
@@ -567,10 +567,10 @@ export function PortfolioShell() {
             {isResumeOpen ? (
                 <div
                     aria-modal="true"
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/65 p-4"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/65 p-2 sm:p-4"
                     role="dialog"
                 >
-                    <div className="panel relative flex h-[88vh] w-full max-w-6xl flex-col overflow-hidden rounded-[1.5rem] border border-line bg-background">
+                    <div className="panel relative flex h-[92vh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-line bg-background sm:h-[88vh] sm:rounded-[1.5rem]">
                         <div className="flex items-center justify-between border-b border-line px-4 py-3 sm:px-6">
                             <p className="display-type text-lg">Resume Preview</p>
                             <button
