@@ -13,11 +13,13 @@ const syne = Syne({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jephthahdominic.com";
+const normalizedSiteUrl = siteUrl.endsWith("/") ? siteUrl.slice(0, -1) : siteUrl;
+const ogImageUrl = `${normalizedSiteUrl}/portfolio_snippet.png`;
 const portfolioDescription =
   "St-dominic Jephthah is a software developer building full-stack web products with strong UX, clean architecture, and reliable delivery.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(normalizedSiteUrl),
   title: {
     default: "St-dominic Jephthah | Software Developer Portfolio",
     template: "%s | St-dominic Jephthah",
@@ -40,7 +42,7 @@ export const metadata: Metadata = {
   creator: "St-dominic Jephthah",
   publisher: "St-dominic Jephthah",
   alternates: {
-    canonical: "/",
+    canonical: normalizedSiteUrl,
   },
   category: "technology",
   robots: {
@@ -58,14 +60,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteUrl,
+    url: normalizedSiteUrl,
     siteName: "St-dominic Jephthah Portfolio",
     title: "St-dominic Jephthah | Software Developer Portfolio",
     description:
       "Explore projects, skills, and experience from St-dominic Jephthah. Includes project case highlights, social links, and direct contact options.",
     images: [
       {
-        url: "/portfolio_snippet.png",
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: "St-dominic Jephthah - Software Developer Portfolio",
@@ -78,7 +80,13 @@ export const metadata: Metadata = {
     description:
       "Explore projects and experience from St-dominic Jephthah, with direct contact and social links.",
     creator: "@TheRealJephthah",
-    images: ["/portfolio_snippet.png"],
+    images: [ogImageUrl],
+  },
+  other: {
+    "og:image:secure_url": ogImageUrl,
+    "og:image:type": "image/png",
+    "og:image:width": "1200",
+    "og:image:height": "630",
   },
   icons: {
     icon: "/avatar.svg",
